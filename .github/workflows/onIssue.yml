@@ -7,9 +7,8 @@ jobs:
   Explore-GitHub-Actions-Issus:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo "An issue was filed by ${{ github.actor }} event."
-        echo "new issue" > issue.txt
+      - run: echo "An issue was filed by ${{ github.actor }} event."
+      - run: echo "new issue" > issue.txt
      # - uses: actions/checkout@v3
      # - run: git checkout -b "test"
      # - run: git push
