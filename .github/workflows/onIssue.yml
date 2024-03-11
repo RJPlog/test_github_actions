@@ -8,3 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "An issue was filed by ${{ github.actor }} event."
+      - run: git checkout -b "test"
