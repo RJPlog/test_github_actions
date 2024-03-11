@@ -13,7 +13,7 @@ jobs:
           echo "new issue" > issue.txt
         
       - name: uplad file
-        uses: actions/upload-artefact@v1
+        uses: actions/upload-artifact@v1
         with:
           name: issue.txt 
 
