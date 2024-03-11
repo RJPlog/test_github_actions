@@ -7,10 +7,18 @@ jobs:
   Explore-GitHub-Actions-Issus:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "An issue was filed by ${{ github.actor }} event."
-      - run: echo "new issue" > issue.txt
+      - name: give notification
+        run:  |
+          echo "An issue was filed by ${{ github.actor }} event."
+          echo "new issue" > issue.txt
+        
+      - name: uplad file
+        uses: actions/upload-artefact@v1
+        with:
+          name: issue.txt 
 
-      - uses: actions/upload-artefact@v1
+
+
 
       
 
