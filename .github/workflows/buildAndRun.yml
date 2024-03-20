@@ -1,11 +1,18 @@
-name: GitHub Actions Demo
-run-name: Built and Run a Kotlin applicatoin
-on: [pull]
+name: GitHub Actions Demo Build Kotlin
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run echo "checkout Rep"
-      - uses: actions/checkout@v4
-      - run: echo "Build the SW"
+      - run: echo "checkout Repo"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "Build SW"
       - run: hello.kt -include-runtime -d hello.jar
-      - run: ls
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+
