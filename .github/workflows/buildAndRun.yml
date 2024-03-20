@@ -1,6 +1,6 @@
 name: GitHub Actions Demo Build Kotlin
 run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build and run kotlin files 🚀
-on: [pull_request]
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
