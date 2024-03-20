@@ -9,7 +9,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "Build SW"
-      - run: hello.kt -include-runtime -d hello.jar
+      - run: kotlinc hello.kt -include-runtime -d hello.jar
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
