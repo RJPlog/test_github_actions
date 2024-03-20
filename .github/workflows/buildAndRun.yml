@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build 
 on:
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
