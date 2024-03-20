@@ -10,10 +10,10 @@ jobs:
         uses: actions/checkout@v4
       - run: echo "Build SW"
       - run: kotlinc hello.kt -include-runtime -d hello.jar
-      - name: List files in the repository
+     # - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: Run application
+     # - name: Run application
       - run: java -jar hello.jar
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
