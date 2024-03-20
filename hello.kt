@@ -1,3 +1,3 @@
 fun main() {
-    println("Hello, World! MMh, still not working")
+    println("Hello, World! Build worked, let's see if it is running")
 }
