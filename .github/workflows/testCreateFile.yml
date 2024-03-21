@@ -8,14 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-      - name: Check out repository code
         uses: actions/checkout@v4
       - name: Build SW   
         run: |
           echo "Build SW - not needed but for testing reasons still in"
           kotlinc -Werror hello.kt -include-runtime -d hello.jar
-     # - name: List files in the repository
-     #  - run: echo "hello world" >> new_file.txt
       - name: Add date to File
         run: |
           date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
