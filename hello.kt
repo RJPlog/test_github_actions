@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    var x: String = 42
+    var x: String = "42"
     if (!args.isEmpty()) {
         x = args[0]
     }
