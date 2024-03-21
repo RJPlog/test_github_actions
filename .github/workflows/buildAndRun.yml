@@ -12,7 +12,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Build SW 
-      - run: |
+        run: |
           kotlinc -Werror hello.kt -include-runtime -d hello.jar
           ls ${{ github.workspace }}
       - name: Run application
