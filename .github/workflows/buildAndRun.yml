@@ -1,24 +1,24 @@
 name: GitHub Actions Demo Build Kotlin
 run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build and run kotlin files 🚀
-# on: [push]
+
 on:
   pull_request:
     branches:
       - main
 jobs:
-  Explore-GitHub-Actions:
+  Build-SW-without-warnings:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "checkout Repo"
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "Build SW"
-      - run: kotlinc -Werror hello.kt -include-runtime -d hello.jar
-     # - name: List files in the repository
-      - run: ls ${{ github.workspace }}
-     # - name: Run application
-      - run: java -jar hello.jar
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Build SW 
+      - run: |
+          kotlinc -Werror hello.kt -include-runtime -d hello.jar
+          ls ${{ github.workspace }}
+      - name: Run application
+        run: |
+          java -jar hello.jar
+          echo "🍏 This job's status is ${{ job.status }}."
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
         with:
