@@ -1,0 +1,15 @@
+name: GitHub Actions Demo Create File
+run-name: ${{ github.actor }} is testing out GitHub Actions, this time create a file
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "checkout Repo"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "Build SW"
+      - run: kotlinc -Werror hello.kt -include-runtime -d hello.jar
+     # - name: List files in the repository
+      - run: echo "hello world" >> new_file.txt
+      - run: ls ${{ github.workspace }}
