@@ -14,7 +14,7 @@ jobs:
       - run: kotlinc -Werror hello.kt -include-runtime -d hello.jar
      # - name: List files in the repository
      #  - run: echo "hello world" >> new_file.txt
-      - run: echo date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
+      - run: date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
       - run: ls ${{ github.workspace }}
       - name: Commit report
         run: |
