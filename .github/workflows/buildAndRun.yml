@@ -17,7 +17,7 @@ jobs:
           ls ${{ github.workspace }}
       - name: Run application
         run: |
-          java -jar hello.jar
+          java -jar hello.jar BINGO BULL
           echo "🍏 This job's status is ${{ job.status }}."
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
