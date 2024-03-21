@@ -8,16 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-      - run: echo "checkout Repo"
+        run: echo "checkout Repo"
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "Build SW - not needed but for testing reasons still in"
-      - run: kotlinc -Werror hello.kt -include-runtime -d hello.jar
+      - name: Build SW   
+        run: |
+          echo "Build SW - not needed but for testing reasons still in"
+          kotlinc -Werror hello.kt -include-runtime -d hello.jar
      # - name: List files in the repository
      #  - run: echo "hello world" >> new_file.txt
       - name: Add date to File
-      - run: date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
-      - run: ls ${{ github.workspace }}
+        run: |
+          date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
+          ls ${{ github.workspace }}
       - name: Commit File
         run: |
           git config --global user.name 'RJPlog'
