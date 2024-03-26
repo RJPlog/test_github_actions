@@ -1,5 +1,5 @@
 import org.junit.Test
-import org.junit.Assertions.assertEquals
+import org.junit.Assert.assertEquals
 
 import java.util.zip.CRC32
 
