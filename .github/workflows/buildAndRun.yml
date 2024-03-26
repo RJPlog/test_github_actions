@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build SW 
         run: |
-          kotlinc -Werror hello.kt -include-runtime -d hello.jar
+          kotlinc -Werror src/hello.kt -include-runtime -d hello.jar
           kotlinc -Werror src/crc32.kt -include-runtime -d crc32.jar
           ls ${{ github.workspace }}
       - name: Run application
