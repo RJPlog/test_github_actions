@@ -16,14 +16,20 @@ jobs:
         run: |
           kotlinc -Werror src/hello.kt -include-runtime -d hello.jar
           kotlinc -Werror src/crc32.kt -include-runtime -d crc32.jar
+  #       kotlinc -cp junit-4.13.2.jar:. test/Crc32Tests.kt -include-runtime -d tests.jar
           ls ${{ github.workspace }}
       - name: Run application
         run: |
           java -jar hello.jar BINGO BULL
           java -jar crc32.jar
           echo "🍏 This job's status is ${{ job.status }}."
+   #   - name: Run unit tests
+   #     run: |
+   #       java -jar junit-platform-console-standalone-1.7.2.jar --class-path tests.jar --scan-class-path
+   #       java -cp <Pfad zur JUnit-Bibliothek>:<Pfad zur Ausgabedatei> org.junit.runner.JUnitCore <Name der Testklasse>
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
         with:
           name: executable
           path: hello.jar
+     
