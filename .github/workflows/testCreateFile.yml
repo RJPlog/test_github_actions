@@ -12,7 +12,7 @@ jobs:
       - name: Build SW   
         run: |
           echo "Build SW - not needed but for testing reasons still in"
-          kotlinc -Werror hello.kt -include-runtime -d hello.jar
+          kotlinc -Werror src/hello.kt -include-runtime -d hello.jar
       - name: Add date to File
         run: |
           date "+%H:%M:%S   %d/%m/%y" >> new_file.txt
