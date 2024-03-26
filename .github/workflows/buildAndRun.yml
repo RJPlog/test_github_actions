@@ -16,8 +16,8 @@ jobs:
         run: |
           kotlinc -Werror src/hello.kt -include-runtime -d hello.jar
           kotlinc -Werror src/crc32.kt -include-runtime -d crc32.jar
-          ls ${{ github.workspace }}
           kotlinc -cp ./src/junit-4.13.2.jar src/test/Crc32Tests.kt -include-runtime -d tests.jar
+          ls ${{ github.workspace }}
   # copilot:      kotlinc -cp https://repo1.maven.org/maven2/junit/junit/4.13.2/junit-4.13.2.jar:. src/test/Crc32Tests.kt -include-runtime -d tests.jar
   # AskB:         kotlinc -cp <Pfad zur JUnit-Bibliothek> -d <Ausgabedatei> <Testdatei> <Hauptdatei>
       - name: Run application
