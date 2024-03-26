@@ -1,5 +1,6 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Test
+import org.junit.Assertions.assertEquals
+
 import java.util.zip.CRC32
 
 class Crc32Tests {
