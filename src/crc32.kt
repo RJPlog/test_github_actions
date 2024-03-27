@@ -13,7 +13,7 @@ fun md5(input: String): String {
 fun crc32(input: String): Long {
     val crc32 = CRC32()
     crc32.update(input.toByteArray())
-    return crc32.value +1L
+    return crc32.value
 }
 
 fun main() {
