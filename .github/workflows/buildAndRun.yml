@@ -26,7 +26,8 @@ jobs:
           java -jar crc32.jar
           echo "🍏 This job's status is ${{ job.status }}."
       - name: Run unit tests
-        run: java -cp ./src/junit-4.13.2.jar:tests.jar org.junit.runner.JUnitCore Crc32Tests
+        run: java -jar junit-platform-console-standalone-1.7.2.jar --class-path tests.jar --scan-class-path
+   #tut nicht:     run: java -cp ./src/junit-4.13.2.jar:tests.jar org.junit.runner.JUnitCore Crc32Tests
    # copilot      java -jar junit-platform-console-standalone-1.7.2.jar --class-path tests.jar --scan-class-path
    # AskB      java -cp <Pfad zur JUnit-Bibliothek>:<Pfad zur Ausgabedatei> org.junit.runner.JUnitCore <Name der Testklasse>
       - name: Archive code coverage results
