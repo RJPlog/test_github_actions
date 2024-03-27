@@ -19,12 +19,12 @@ class Crc32Tests {
     @Test
     fun testSingleCharacter() {
         val crc = crc32("A")
-        assertEquals(65L, crc)
+        assertEquals(3554254475L, crc)
     }
 
     @Test
     fun testMultipleCharacters() {
         val crc = crc32("Hello, World!")
-        assertEquals(1243066710L, crc)
+        assertEquals(3964322768L, crc)
     }
 }
