@@ -2,6 +2,14 @@ import org.junit.Test
 import org.junit.Assert.assertEquals
 
 class Md5Tests {
+    fun md5(input: String): String {
+        val md = java.security.MessageDigest.getInstance("MD5")
+        val byteArray = md.digest(input.toByteArray())
+        return byteArray.joinToString("") {
+            "%02x".format(it)
+        }
+    }
+    
     @Test
     fun testEmptyString() {
         val hash = md5("")
