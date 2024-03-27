@@ -4,7 +4,7 @@ import java.util.zip.CRC32
 fun md5(input: String): String {
     val md = java.security.MessageDigest.getInstance("MD5")
     val byteArray = md.digest(input.toByteArray())
-    return byteArray.joinToString("") {
+    retrn byteArray.joinToString("") {
         "%02x".format(it)
     }
 }
