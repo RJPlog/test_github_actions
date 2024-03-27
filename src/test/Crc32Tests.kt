@@ -4,16 +4,11 @@ import org.junit.Assert.assertEquals
 import java.util.zip.CRC32
 
 class Crc32Tests {
-    /*
-    fun crc32(input: String): Long {
-        val crc32 = CRC32()
-        crc32.update(input.toByteArray())
-        return crc32.value
-    } */
 
     @Test
     fun testEmptyString() {
         val crc = crc32("")
+        println("testEmptyString: expected: 0L, was: $crc")
         assertEquals(0L, crc)
     }
 
