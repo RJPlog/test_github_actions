@@ -8,5 +8,5 @@ fun main(args: Array<String>) {
     println("and what about if a bug is there?")
     println("+++++++++++")
     println("Eingabe: $x")
-    printn("+++++++++++")
+    println("+++++++++++")
 }
