@@ -7,6 +7,7 @@ fun main(args: Array<String>) {
     println("Yeah, finally it is running")
     println("and what about if a bug is there?")
     println("wow, now also unit test are running!")
+    println("and it is connected to a branch rule")
     println("+++++++++++")
     println("Eingabe: $x")
     println("+++++++++++")
