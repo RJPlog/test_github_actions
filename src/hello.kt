@@ -6,6 +6,7 @@ fun main(args: Array<String>) {
     println("Hello, World! Build worked, let's see if it is running :-) or not.")
     println("Yeah, finally it is running")
     println("and what about if a bug is there?")
+    println("wow, now also unit test are running!")
     println("+++++++++++")
     println("Eingabe: $x")
     println("+++++++++++")
