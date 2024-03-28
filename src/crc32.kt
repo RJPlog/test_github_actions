@@ -16,6 +16,7 @@ fun crc32(input: String): Long {
     return crc32.value
 }
 
+// gebe die Werte aus.
 fun main() {
     for (i in 'A'..'Z') {
         val crc = crc32(i.toString())
