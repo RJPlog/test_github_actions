@@ -4,8 +4,4 @@ follow the quickstart for GitHubActions
 LessonsLearned:
 - each workflow can contains out of several jobs. A job has several steps, startet each with a 'hyphen'. A step contains either a single 'uses' or a 'run' keyword. It optionally can also include a 'name'.
 
- ok, now I have a workflow, running on manual or PR, building SW, running SW and running Unit tests, ok so far. What does not work, PR is only aborted if build is not working, but not if unittests are failing.
- You can see the failed job, but PR is possible 
- 
- next step:
- -> Rework workflow or set branch protection rules
+- you can add branch rules to enable blocking of PR merging if workflow is not passed. Took some time to understand that there was an interferece with a second workflow which added a commit but did not run the needed workflow again. Disabling helped, will figure out later how to deal with this. Guess I have to trigger the build.. workflow also on push.
