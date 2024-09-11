@@ -48,10 +48,10 @@ jobs:
          sudo apt install -y groovy
 
       - name: check groovy version
-        run: groovy --version
+        run: groovy --illegal-access=permit --version
 
       - name: run groovy file  
-        run: groovy src/helloWorld.groovy
+        run: groovy --illegal-access=permit src/helloWorld.groovy
 
          
          
