@@ -49,7 +49,7 @@ jobs:
 
       - name: check groovy version
         run: |
-         export JAVA_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED"
+         export JAVA_OPTS="--illegal-access=permit"
          groovy --version
 
       - name: run groovy file  
