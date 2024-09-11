@@ -45,11 +45,9 @@ jobs:
 
       - name: Install Groovy
         run: |
-         GROOVY_VERSION="3.0.9" # Specify the desired version of Groovy
-         wget "https://dlcdn.apache.org/groovy/${GROOVY_VERSION}/distribution/apache-groovy-binary-${GROOVY_VERSION}.zip"
-         unzip "apache-groovy-binary-${GROOVY_VERSION}.zip"
-         echo "GROOVY_HOME=$GITHUB_WORKSPACE/groovy-${GROOVY_VERSION}" >> $GITHUB_ENV
-         echo "$GITHUB_WORKSPACE/groovy-${GROOVY_VERSION}/bin" >> $GITHUB_PATH
+         curl -s "https://get.sdkman.io" | bash
+         source "$HOME/.sdkman/bin/sdkman-init.sh"
+         sdk install groovy
 
       - name: Run Groovy script
         run: groovy src/helloWorld.groovy
