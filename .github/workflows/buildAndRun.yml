@@ -35,19 +35,23 @@ jobs:
         with:
           name: executable
           path: hello.jar
-
+          
+# tryout use of groovy
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
           java-version: '11'         
 
-      - name: Install Groovy
+      - name: install groovy
         run: |
          sudo apt update
          sudo apt install -y groovy
 
-      - name: Check Groovy version
+      - name: check groovy version
         run: groovy --version
+
+      - name: run groovy file  
+        run: helloWorld.groovy
 
          
          
