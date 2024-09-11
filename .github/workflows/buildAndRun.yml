@@ -48,7 +48,9 @@ jobs:
          sudo apt install -y groovy
 
       - name: check groovy version
-        run: groovy --illegal-access=permit --version
+        run: |
+         export JAVA_OPTS="--illegal-access=permit"
+         groovy --version
 
       - name: run groovy file  
         run: groovy --illegal-access=permit src/helloWorld.groovy
