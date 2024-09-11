@@ -36,21 +36,11 @@ jobs:
           name: executable
           path: hello.jar
           
-# tryout use of groovy
-   #   - name: Set up Java
-   #     uses: actions/setup-java@v1
-   #     with:
-   #       java-version: '11'         
-
+# tryout use of groovy        
       - name: install groovy
         run: |
          sudo apt update
-         sudo apt upgrade
-         sudo apt install openjdk-17-jdk
-         sudo curl -s "https://get.sdkman.io" | bash
-         source "/home/cyberithub/.sdkman/bin/sdkman-init.sh"
-         sdk install groovy
-        # sudo apt install -y groovy
+         sudo apt install -y groovy
 
       - name: check groovy version
         run: groovy --version
