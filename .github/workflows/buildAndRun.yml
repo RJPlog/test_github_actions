@@ -45,10 +45,11 @@ jobs:
 
       - name: Install Groovy
         run: |
-         wget https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.7.zip
-         unzip apache-groovy-binary-3.0.7.zip
-         echo "GROOVY_HOME=$GITHUB_WORKSPACE/groovy-3.0.7" >> $GITHUB_ENV
-         echo "$GITHUB_WORKSPACE/groovy-3.0.7/bin" >> $GITHUB_PATH
+         GROOVY_VERSION="3.0.9" # Specify the desired version of Groovy
+         wget "https://dlcdn.apache.org/groovy/${GROOVY_VERSION}/distribution/apache-groovy-binary-${GROOVY_VERSION}.zip"
+         unzip "apache-groovy-binary-${GROOVY_VERSION}.zip"
+         echo "GROOVY_HOME=$GITHUB_WORKSPACE/groovy-${GROOVY_VERSION}" >> $GITHUB_ENV
+         echo "$GITHUB_WORKSPACE/groovy-${GROOVY_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Run Groovy script
         run: groovy src/helloWorld.groovy
