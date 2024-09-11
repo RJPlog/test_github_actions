@@ -43,9 +43,8 @@ jobs:
 
       - name: Install Groovy
         run: |
-         curl -s get.sdkman.io | bash
-         source "$HOME/.sdkman/bin/sdkman-init.sh"
-         sdk install groovy
+         sudo apt update
+         sudo apt install -y groovy
 
       - name: Check Groovy version
         run: groovy --version
