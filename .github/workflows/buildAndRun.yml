@@ -35,4 +35,13 @@ jobs:
         with:
           name: executable
           path: hello.jar
-     
+
+      - name: Tryout groovy
+        run: | 
+         sudo apt update
+         sudo apt install -y groovy
+      - name: Check groovy version
+        run: groovy --version
+
+         
+         
