@@ -36,6 +36,11 @@ jobs:
           name: executable
           path: hello.jar
 
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'         
+
       - name: Install Groovy
         run: |
          curl -s get.sdkman.io | bash
