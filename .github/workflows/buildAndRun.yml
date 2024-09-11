@@ -48,6 +48,7 @@ jobs:
          curl -s "https://get.sdkman.io" | bash
          source "$HOME/.sdkman/bin/sdkman-init.sh"
          sdk install groovy
+         groovy --version
 
       - name: Run Groovy script
         run: groovy src/helloWorld.groovy
