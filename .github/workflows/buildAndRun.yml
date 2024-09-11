@@ -36,11 +36,13 @@ jobs:
           name: executable
           path: hello.jar
 
-      - name: Tryout groovy
-        run: | 
-         sudo apt update
-         sudo apt install -y groovy
-      - name: Check groovy version
+      - name: Install Groovy
+        run: |
+         curl -s get.sdkman.io | bash
+         source "$HOME/.sdkman/bin/sdkman-init.sh"
+         sdk install groovy
+
+      - name: Check Groovy version
         run: groovy --version
 
          
