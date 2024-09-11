@@ -48,10 +48,13 @@ jobs:
          curl -s "https://get.sdkman.io" | bash
          source "$HOME/.sdkman/bin/sdkman-init.sh"
          sdk install groovy
+         echo "source $HOME/.sdkman/bin/sdkman-init.sh" >> $GITHUB_ENV
          groovy --version
 
       - name: Run Groovy script
-        run: groovy src/helloWorld.groovy
+        run: |
+         source "$HOME/.sdkman/bin/sdkman-init.sh"
+         groovy src/helloWorld.groovy
 
          
          
