@@ -51,7 +51,7 @@ jobs:
         run: groovy --version
 
       - name: run groovy file  
-        run: helloWorld.groovy
+        run: groovy src/helloWorld.groovy
 
          
          
