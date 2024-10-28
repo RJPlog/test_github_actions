@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
     var x: String = "42"
-    var y: String = "empty
+    var y: String = "empty"
     if (!args.isEmpty()) {
         x = args[0]
         if (args.size() > 1) {
