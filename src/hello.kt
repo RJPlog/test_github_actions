@@ -1,7 +1,7 @@
 fun main(args: Array<String>) {
     var x: String = "42"
     if (!args.isEmpty()) {
-        x = args[0]
+        x = args[1]
     }
     println("Hello, World! Build worked, let's see if it is running :-) or not.")
     println("Yeah, finally it is running")
