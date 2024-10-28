@@ -5,6 +5,7 @@ fun main(args: Array<String>) {
         x = args[0]
         if (args.size() > 1) {
             y = args[1]
+        }
             
     }
     println("Hello, World! Build worked, let's see if it is running :-) or not.")
