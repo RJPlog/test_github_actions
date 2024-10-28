@@ -3,7 +3,7 @@ fun main(args: Array<String>) {
     var y: String = "empty"
     if (!args.isEmpty()) {
         x = args[0]
-        if (args.size() > 1) {
+        if (args.size > 1) {
             y = args[1]
         }
     }
