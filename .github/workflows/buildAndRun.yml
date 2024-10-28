@@ -9,7 +9,7 @@ on:
 
 jobs:
   Build-SW-without-warnings:
-  needs: Install-and-run-groovy
+    needs: Install-and-run-groovy
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
