@@ -36,20 +36,20 @@ jobs:
           name: executable
           path: hello.jar
           
-Install-and-run-groovy:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Check out repository code
-      uses: actions/checkout@v4
+   Install-and-run-groovy:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
 
-    - name: Install Groovy
-      run: |
+      - name: Install Groovy
+        run: |
          curl -s "https://get.sdkman.io" | bash
          source "$HOME/.sdkman/bin/sdkman-init.sh"
          sdk install groovy
          groovy --version
 
-    - name: Run Groovy script
-      run: |
+      - name: Run Groovy script
+        run: |
          source "$HOME/.sdkman/bin/sdkman-init.sh"
          groovy src/helloWorld.groovy
