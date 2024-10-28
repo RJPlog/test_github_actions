@@ -8,8 +8,8 @@ on:
       - main
 
 jobs:
-  Build-SW-without-warnings:
-    needs: Install-and-run-groovy
+  Build-SW-without-warnings:              # job 1, run and test kotlin
+    needs: Install-and-run-groovy         # just a tryout, job 1 needs to wait for job 2
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -37,7 +37,7 @@ jobs:
           name: executable
           path: hello.jar
           
-  Install-and-run-groovy:
+  Install-and-run-groovy:              # job 2, install and runn groovy
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
