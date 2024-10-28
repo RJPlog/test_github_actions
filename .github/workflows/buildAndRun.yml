@@ -6,11 +6,11 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   Build-SW-without-warnings:
     runs-on: ubuntu-latest
     steps:
-    
       - name: Check out repository code
         uses: actions/checkout@v4
         
@@ -36,20 +36,20 @@ jobs:
           name: executable
           path: hello.jar
           
-   Install-and-run-groovy:
-     runs-on: ubuntu-latest
-     steps:
+  Install-and-run-groovy:
+    runs-on: ubuntu-latest
+    steps:
       - name: Check out repository code
         uses: actions/checkout@v4
 
       - name: Install Groovy
         run: |
-         curl -s "https://get.sdkman.io" | bash
-         source "$HOME/.sdkman/bin/sdkman-init.sh"
-         sdk install groovy
-         groovy --version
+          curl -s "https://get.sdkman.io" | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk install groovy
+          groovy --version
 
       - name: Run Groovy script
         run: |
-         source "$HOME/.sdkman/bin/sdkman-init.sh"
-         groovy src/helloWorld.groovy
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          groovy src/helloWorld.groovy
