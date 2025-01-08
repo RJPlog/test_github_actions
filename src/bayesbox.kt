@@ -13,55 +13,24 @@ fun kOutOfn(n: Long, k: Long, p: Double): Double {
 }
 
 fun main() {
-    var priori = mutableListOf(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0)
+    val hypothesis = listOf(0.0,0.1,0.15, 0.2, 0.25, 0.35, 0.4)
+    var priori = mutableListOf<Double>()
+    hypothesis.forEach{
+        priori.add(1.0/hypothesis.size)
+    }
     var sample = mutableListOf<Pair<Long,Long>>()
     sample.add(Pair(18L, 3L))
     sample.add(Pair(15L, 2L))
     sample.add(Pair(10L, 1L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(6L, 1L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 3L))
-    sample.add(Pair(12L, 2L))
     sample.add(Pair(18L, 3L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(18L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 1L))
-    sample.add(Pair(12L, 3L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(18L, 3L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(18L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-    sample.add(Pair(12L, 2L))
-
-
+    sample.add(Pair(18L,3L))
+   
     sample.forEach {
         var n = it.first
         var k = it.second
         var likelyhood = mutableListOf<Double>()
         var posteriori = mutableListOf<Double>()
-        priori.forEach {
+        hypothesis.forEach {
             likelyhood.add(kOutOfn(n, k, it))
         }
 
