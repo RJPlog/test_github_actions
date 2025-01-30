@@ -28,7 +28,7 @@ jobs:
       - name: Build and Run SW out of different repos's
         run: |
           cd aoc2024
-          kotlinc -Werror aoc2024/day2401_1_2.kt -include-runtime -d aoc2024/day2401_1_2.jar && java -jar day2401_1_2.jar
+          kotlinc -Werror day2401_1_2.kt -include-runtime -d day2401_1_2.jar && java -jar day2401_1_2.jar
           cd ../aoc2023
-          kotlinc -Werror aoc2023/day2301_1_2.kt -include-runtime -d aoc2023/day2301_1_2.jar && java -jar day2301_1_2.jar
+          kotlinc -Werror day2301_1_2.kt -include-runtime -d day2301_1_2.jar && java -jar day2301_1_2.jar
           echo "🍏 This job's status is ${{ job.status }}."
