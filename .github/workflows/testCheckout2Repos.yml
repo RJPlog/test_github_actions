@@ -1,0 +1,22 @@
+name: Checkout2Repos
+run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build and run kotlin files 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Checkout_2_different_repositories:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: aoc-2024
+          path: aoc
+
+      - name: Checkout tools repo
+        uses: actions/checkout@v4
+        with:
+          repository: aoc-2023
+          path: aoc
