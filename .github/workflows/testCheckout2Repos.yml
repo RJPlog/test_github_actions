@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout
+      - name: Checkout first year
         uses: actions/checkout@v4
         with:
           repository: RJPlog/aoc-2024
           path: aoc
 
-      - name: Checkout tools repo
+      - name: Checkout second year
         uses: actions/checkout@v4
         with:
           repository: RJPlog/aoc-2023
