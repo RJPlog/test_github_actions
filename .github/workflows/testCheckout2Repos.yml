@@ -24,3 +24,14 @@ jobs:
       - name: show content
         run: |
           ls -R ${{ github.workspace }}
+
+      - name: Build SW out of different repos's
+        run: |
+          kotlinc -Werror aoc2024/day2401_1_2.kt -include-runtime -d aoc2024/day2401_1_2.jar
+          kotlinc -Werror aoc2023/day2301_1_2.kt -include-runtime -d ao2023/day2301_1_2.jar
+          
+      - name: Run application
+        run: |
+          java -jar aoc2024/day2401_1_2.jar
+          java -jar aoc2023/day2301_1_2.jar
+          echo "🍏 This job's status is ${{ job.status }}."
