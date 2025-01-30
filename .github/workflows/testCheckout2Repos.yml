@@ -1,5 +1,5 @@
 name: Checkout2Repos
-run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build and run kotlin files 🚀
+run-name: ${{ github.actor }} is testing out GitHub Actions, this time to build how to check out multiple repositories 🚀
 
 on:
   workflow_dispatch:
