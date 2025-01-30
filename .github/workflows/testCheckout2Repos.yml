@@ -20,3 +20,6 @@ jobs:
         with:
           repository: RJPlog/aoc-2023
           path: aoc
+
+      - name: show content
+        run: ls ${{ github.workspace }}
