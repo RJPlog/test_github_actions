@@ -13,13 +13,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: RJPlog/aoc-2024
-          path: aoc
+          path: aoc2024
 
       - name: Checkout second year
         uses: actions/checkout@v4
         with:
           repository: RJPlog/aoc-2023
-          path: aoc
+          path: aoc2023
 
       - name: show content
         run: |
