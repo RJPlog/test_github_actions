@@ -24,3 +24,14 @@ jobs:
           git add new_file.txt
           git commit -m "Automated report"
           git push
+
+      - name: Build SW out of different repos's
+        run: |
+          kotlinc -Werror aoc2024/day2401_1_2.kt -include-runtime -d day2401_1_2.jar
+          kotlinc -Werror aoc2023/day2301_1_2.kt -include-runtime -d day2301_1_2.jar
+          
+      - name: Run application
+        run: |
+          java -jar day2401_1_2.jar
+          java -jar day2301_1_2.jar
+          echo "🍏 This job's status is ${{ job.status }}."
