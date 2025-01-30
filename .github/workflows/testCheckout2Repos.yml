@@ -22,4 +22,5 @@ jobs:
           path: aoc
 
       - name: show content
-        run: ls ${{ github.workspace }}
+        run: |
+          ls ${{ github.workspace }}
