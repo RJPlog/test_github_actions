@@ -23,5 +23,4 @@ jobs:
 
       - name: show content
         run: |
-          cd aoc
           ls -R ${{ github.workspace }}
