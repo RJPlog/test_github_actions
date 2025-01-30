@@ -12,11 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          repository: aoc-2024
+          repository: RJPlog/aoc-2024
           path: aoc
 
       - name: Checkout tools repo
         uses: actions/checkout@v4
         with:
-          repository: aoc-2023
+          repository: RJPlog/aoc-2023
           path: aoc
