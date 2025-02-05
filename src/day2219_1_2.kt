@@ -148,10 +148,11 @@ fun aocDay2219(part: Int = 1): Int {
         var geodes = mine(bluePrint, timeLimit)
         println()
         println("----next blueprint-----------")
-        println()
+
 
         // determine quality level
         result += id * geodes
+        println("$id: geodes $geodes, $result")
         id += 1
     }
 
