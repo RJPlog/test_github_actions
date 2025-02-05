@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Runtime of Solution on Github runner:
+  Runtime-of-Solution-on-Github-runner:
     runs-on: ubuntu-latest
     steps:
 
