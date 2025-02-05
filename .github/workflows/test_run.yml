@@ -14,7 +14,5 @@ jobs:
 
       - name: Run day19
         run: |
-          cd day19
-          cd kotlin
-          cd RJPlog
+          cd src
           kotlinc day2219_1_2.kt -include-runtime -d day2219_1_2.jar && java -jar -Xss515m day2219_1_2.jar
