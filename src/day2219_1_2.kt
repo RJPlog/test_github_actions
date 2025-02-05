@@ -27,7 +27,10 @@ fun mine(localBlue: String, timeLeft: Int): Int {
     var geodes = mutableListOf(0)
     if (timeLeft == 0) {
         geodes.add(lB[7])
-        if (lB[7] > geodesMax) geodesMax = lB[7]
+        if (lB[7] > geodesMax) {
+            geodesMax = lB[7]
+            println(geodesMax)
+        }
         runCount += 1
     } else {
         // #1.4 iterate over time
@@ -112,7 +115,7 @@ fun mine(localBlue: String, timeLeft: Int): Int {
 fun aocDay2219(part: Int = 1): Int {
 
     var result = 0
-    var timeLimit = 22
+    var timeLimit = 24
 
     var id = 1
     File("day2219_puzzle_input.txt").forEachLine {
