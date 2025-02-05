@@ -29,8 +29,8 @@ fun mine(localBlue: String, timeLeft: Int): Int {
         geodes.add(lB[7])
         if (lB[7] > geodesMax) {
             geodesMax = lB[7] 
-            println(geodesMax
-                    }
+            println(geodesMax)
+            }
         runCount += 1
     } else {
         // #1.4 iterate over time
