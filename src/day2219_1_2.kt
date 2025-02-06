@@ -149,13 +149,19 @@ fun aocDay2219(part: Int = 1): Int {
 
         // #1.2 run blueprint and calculate max geodes to be produced
         var geodes = mine(bluePrint, timeLimit)
-        println()
-        println("----next blueprint-----------")
+        println("----blueprint: $id-----------")
 
+        println()
 
         // determine quality level
-        result += id * geodes
-        println("$id: geodes $geodes, $result")
+        if (part == 1) {
+            result += id * geodes
+            println("$id: geodes $geodes, $result")
+        } else {
+            if (result == 0) result = 1
+            result *= geodes
+            if (id == 3) return result
+        }
         id += 1
     }
 
@@ -168,11 +174,11 @@ fun main() {
 
     println("--- Day 19: Not Enough Minerals ---")
 
-    var solution1 = aocDay2219(1)
-    println("   if you add up the quality level of all of the blueprints you get $solution1")
+    //var solution1 = aocDay2219(1)
+    //println("   if you add up the quality level of all of the blueprints you get $solution1")
 
-    //var solution2 = aocDay2219(2)
-    //println("   $solution2")
+    var solution2 = aocDay2219(2)
+    println("   if you multiply these numbers you get $solution2")
 
     t1 = System.currentTimeMillis() - t1
     println("puzzle solved in ${t1} ms")
