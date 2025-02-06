@@ -25,7 +25,7 @@ fun mine(localBlue: String, timeLeft: Int): Int {
 
     if ((timeLeft < 10 && lB[1] <= 0) || (timeLeft < 5 && lB[2] <= 0)) {return 0}
     if (lB[1] > 8) return 0
-    if (lB[0] > 5 return 0
+    if (lB[0] > 5) return 0
     //if (timeLeft < 10 && lB[0] == 0 && lB[1] == 0) return 0
 
     var geodes = mutableListOf(0)
