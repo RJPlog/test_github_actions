@@ -160,7 +160,6 @@ fun aocDay2219(part: Int = 1): Int {
         } else {
             if (result == 0) result = 1
             result *= geodes
-            if (id == 3) return result
         }
         id += 1
     }
