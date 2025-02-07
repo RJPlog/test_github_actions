@@ -24,8 +24,8 @@ fun aocDay2224(): Int {
       when(it) {
         '<' -> wW.add(Pair(x,y))
         '>' -> eW.add(Pair(x,y))
-        'v' -> sW.add(Pair(x,y))
-        '^' -> nW.add(Pair(x,y))
+        'v' -> nW.add(Pair(x,y))
+        '^' -> sW.add(Pair(x,y))
       }
       x += 1
     }
@@ -36,14 +36,14 @@ fun aocDay2224(): Int {
   println("w: $w, h: $h")
   var xS = Pair(0,-1)
   var xE = Pair(w-1,h-1)
-  println("xE: $xE")
+  println("xS: $xS, xE: $xE")
   var allPath = mutableListOf<MutableList<Pair<Int,Int>>>()
 
   var startPath = mutableListOf(xS)
   allPath.add(startPath)
   
   // start moving in all posible directions (until first path reached end)
-  for (t in 1..7) {// replace by while later
+  for (t in 1..20) {// replace by while later
     var allPathNew = mutableListOf<MutableList<Pair<Int,Int>>>()
     allPath.forEach{
       var currPath = it
@@ -69,11 +69,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -97,11 +97,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -124,11 +124,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -152,11 +152,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -180,11 +180,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -231,4 +231,4 @@ fun main() {
 
     t1 = System.currentTimeMillis() - t1
     println("puzzle solved in ${t1} ms")
-} 
+}  
