@@ -24,8 +24,8 @@ fun aocDay2224(): Int {
       when(it) {
         '<' -> wW.add(Pair(x,y))
         '>' -> eW.add(Pair(x,y))
-        'v' -> sW.add(Pair(x,y))
-        '^' -> nW.add(Pair(x,y))
+        'v' -> nW.add(Pair(x,y))
+        '^' -> sW.add(Pair(x,y))
       }
       x += 1
     }
@@ -36,14 +36,17 @@ fun aocDay2224(): Int {
   println("w: $w, h: $h")
   var xS = Pair(0,-1)
   var xE = Pair(w-1,h-1)
-  println("xE: $xE")
+  println("xS: $xS, xE: $xE")
   var allPath = mutableListOf<MutableList<Pair<Int,Int>>>()
 
   var startPath = mutableListOf(xS)
   allPath.add(startPath)
   
   // start moving in all posible directions (until first path reached end)
-  for (t in 1..7) {// replace by while later
+  //for (t in 1..20) {// replace by while later
+  var t = 1
+  while (t < 20000) {
+    println(t)
     var allPathNew = mutableListOf<MutableList<Pair<Int,Int>>>()
     allPath.forEach{
       var currPath = it
@@ -54,8 +57,6 @@ fun aocDay2224(): Int {
       var nextY = 0
       var wX = 0
       var wY = 0
-      // here is a problem: -t leads to coordinates outside rectangle -> for minus create a t* which you can add!
-
 
       // check up
       nextX = currX
@@ -69,11 +70,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -97,11 +98,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -124,11 +125,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -152,11 +153,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -180,11 +181,11 @@ fun aocDay2224(): Int {
           wY = nextY
           if (!eW.contains(Pair(wX, wY))) {
             wX = nextX
-            wY = (nextY - t) % w
+            wY = (nextY - t) % h
             if (wY < 0) wY = h + wY
             if (!nW.contains(Pair(wX, wY))) {
               wX = nextX
-              wY = (nextY + t) % w
+              wY = (nextY + t) % h
               if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
@@ -200,6 +201,8 @@ fun aocDay2224(): Int {
     }
     allPathNew = allPathNew.distinct().toMutableList()
 
+    // allPath holds a lot of different path to same location, -> only take one path to the current end Point
+
     allPathNew.forEach {
       if (it.last() == xE ) {
         println(it)
@@ -210,11 +213,13 @@ fun aocDay2224(): Int {
 
     allPath.clear()
     allPath.addAll(allPathNew)
-
+    t += 1
   }
+
+  /* 
   allPath.forEach{
     println(it)
-  }
+  } */
 
 
   return -1
@@ -231,4 +236,4 @@ fun main() {
 
     t1 = System.currentTimeMillis() - t1
     println("puzzle solved in ${t1} ms")
-} 
+}  
