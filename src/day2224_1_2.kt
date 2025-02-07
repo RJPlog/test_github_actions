@@ -24,8 +24,8 @@ fun aocDay2224(): Int {
       when(it) {
         '<' -> wW.add(Pair(x,y))
         '>' -> eW.add(Pair(x,y))
-        'v' -> nW.add(Pair(x,y))
-        '^' -> sW.add(Pair(x,y))
+        'v' -> sW.add(Pair(x,y))
+        '^' -> nW.add(Pair(x,y))
       }
       x += 1
     }
@@ -42,7 +42,7 @@ fun aocDay2224(): Int {
   allPath.add(startPath)
   
   // start moving in all posible directions (until first path reached end)
-  for (t in 1..6) {// replace by while later
+  for (t in 1..7) {// replace by while later
     var allPathNew = mutableListOf<MutableList<Pair<Int,Int>>>()
     allPath.forEach{
       var currPath = it
@@ -231,4 +231,5 @@ fun main() {
     t1 = System.currentTimeMillis() - t1
     println("puzzle solved in ${t1} ms")
 }  
+
 
