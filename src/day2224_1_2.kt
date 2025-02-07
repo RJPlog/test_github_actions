@@ -33,8 +33,9 @@ fun aocDay2224(): Int {
   }
   h = y
 
+  println("w: $w, h: $h")
   var xS = Pair(0,-1)
-  var xE = Pair(w-1,h-1)
+  var xE = Pair(w-1,h-2)
   var allPath = mutableListOf<MutableList<Pair<Int,Int>>>()
 
   var startPath = mutableListOf(xS)
@@ -48,50 +49,170 @@ fun aocDay2224(): Int {
       var currX = currPath.last().first
       var currY = currPath.last().second
       
+      var nextX = 0
+      var nextY = 0
+      var wX = 0
+      var wY = 0
       // here is a problem: -t leads to coordinates outside rectangle -> for minus create a t* which you can add!
 
 
       // check up
-      if (currY-1 >= 0 ) {
-        if (!(wW.contains(Pair((currX + t)%w, currY-1)) || eW.contains(Pair((currX - t)%w, currY-1)) || nW.contains(Pair(currX, (currY-1- t) % h)) || sW.contains(Pair(currX, (currY-1 + t) % h)))) {
-          var upPath = mutableListOf<Pair<Int,Int>>()
-          upPath.addAll(currPath)
-          upPath.add(Pair(currX, currY - 1))
+      nextX = currX
+      nextY = currY - 1
+      if (nextX >= 0 && nextX < w && nextY  >= 0 && nextY < h) {
+        wX = (nextX + t) % w
+        wY = nextY 
+        if (!wW.contains(Pair(wX, wY))) {
+          wX = (nextX - t) % w
+          if (wX< 0) wX = w + wX
+          wY = nextY
+          if (!eW.contains(Pair(wX, wY))) {
+            wX = nextX
+            wY = (nextY - t) % w
+            if (wY < 0) wY = h + wY
+            if (!nW.contains(Pair(wX, wY))) {
+              wX = nextX
+              wY = (nextY + t) % w
+              if (!sW.contains(Pair(wX, wY))) {
+          var downPath = mutableListOf<Pair<Int,Int>>()
+          downPath.addAll(currPath)
+          downPath.add(Pair(nextX, nextY))
+          allPathNew.add(downPath)
+              }
+            }
+          }
         }
       }
 
       // check right
-      if (currX+1 < w ) {
-
-      }
-      // check down
-      if (currY+1 < h ) {
-        if (!(wW.contains(Pair((currX + t)%w, currY+1)) || eW.contains(Pair((currX - t)%w, currY+1)) || nW.contains(Pair(currX, (currY+1- t) % h)) || sW.contains(Pair(currX, (currY+1 + t) % h)))) {
+      nextX = currX + 1
+      nextY = currY 
+      if (nextX >= 0 && nextX < w && nextY  >= 0 && nextY < h) {
+        wX = (nextX + t) % w
+        wY = nextY 
+        if (!wW.contains(Pair(wX, wY))) {
+          wX = (nextX - t) % w
+          if (wX< 0) wX = w + wX
+          wY = nextY
+          if (!eW.contains(Pair(wX, wY))) {
+            wX = nextX
+            wY = (nextY - t) % w
+            if (wY < 0) wY = h + wY
+            if (!nW.contains(Pair(wX, wY))) {
+              wX = nextX
+              wY = (nextY + t) % w
+              if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
-          downPath.add(Pair(currX, currY + 1))
+          downPath.add(Pair(nextX, nextY))
           allPathNew.add(downPath)
+              }
+            }
+          }
+        }
+      }
+      // check down
+      nextX = currX
+      nextY = currY + 1
+      if (nextX >= 0 && nextX < w && nextY  >= 0 && nextY < h) {
+        wX = (nextX + t) % w
+        wY = nextY 
+        if (!wW.contains(Pair(wX, wY))) {
+          wX = (nextX - t) % w
+          if (wX< 0) wX = w + wX
+          wY = nextY
+          if (!eW.contains(Pair(wX, wY))) {
+            wX = nextX
+            wY = (nextY - t) % w
+            if (wY < 0) wY = h + wY
+            if (!nW.contains(Pair(wX, wY))) {
+              wX = nextX
+              wY = (nextY + t) % w
+              if (!sW.contains(Pair(wX, wY))) {
+          var downPath = mutableListOf<Pair<Int,Int>>()
+          downPath.addAll(currPath)
+          downPath.add(Pair(nextX, nextY))
+          allPathNew.add(downPath)
+              }
+            }
+          }
         }
       }
 
       // check left
-      if (currX-1 >= 0 ) {
-
+      nextX = currX - 1
+      nextY = currY
+      if (nextX >= 0 && nextX < w && nextY  >= 0 && nextY < h) {
+        wX = (nextX + t) % w
+        wY = nextY 
+        if (!wW.contains(Pair(wX, wY))) {
+          wX = (nextX - t) % w
+          if (wX< 0) wX = w + wX
+          wY = nextY
+          if (!eW.contains(Pair(wX, wY))) {
+            wX = nextX
+            wY = (nextY - t) % w
+            if (wY < 0) wY = h + wY
+            if (!nW.contains(Pair(wX, wY))) {
+              wX = nextX
+              wY = (nextY + t) % w
+              if (!sW.contains(Pair(wX, wY))) {
+          var downPath = mutableListOf<Pair<Int,Int>>()
+          downPath.addAll(currPath)
+          downPath.add(Pair(nextX, nextY))
+          allPathNew.add(downPath)
+              }
+            }
+          }
+        }
       }
 
       // check wait
-        if (!(wW.contains(Pair((currX + t)%w, currY)) || eW.contains(Pair((currX - t)%w, currY)) || nW.contains(Pair(currX, (currY- t) % h)) || nW.contains(Pair(currX, (currY + t) % h)))) {
+      nextX = currX
+      nextY = currY
+      if (true ) {
+        wX = (nextX + t) % w
+        wY = nextY 
+        if (!wW.contains(Pair(wX, wY))) {
+          wX = (nextX - t) % w
+          if (wX< 0) wX = w + wX
+          wY = nextY
+          if (!eW.contains(Pair(wX, wY))) {
+            wX = nextX
+            wY = (nextY - t) % w
+            if (wY < 0) wY = h + wY
+            if (!nW.contains(Pair(wX, wY))) {
+              wX = nextX
+              wY = (nextY + t) % w
+              if (!sW.contains(Pair(wX, wY))) {
           var downPath = mutableListOf<Pair<Int,Int>>()
           downPath.addAll(currPath)
-          downPath.add(Pair(currX, currY))
+          downPath.add(Pair(nextX, nextY))
           allPathNew.add(downPath)
+              }
+            }
+          }
         }
+      }
 
       
     }
+    allPathNew = allPathNew.distinct().toMutableList()
+
+    allPathNew.forEach {
+      if (it.last() == xE ) {
+        println(it)
+        return (it.size)
+      }
+    }
+
+
     allPath.clear()
     allPath.addAll(allPathNew)
-    println(allPath)
+
+  }
+  allPath.forEach{
+    println(it)
   }
 
 
