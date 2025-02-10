@@ -16,4 +16,4 @@ jobs:
         timeout-minutes: 4320  # Set the timeout to 72 hours (4320 minutes)
         run: |
           cd src
-          kotlinc day2224_1_2.kt -include-runtime -d day2224_1_2.jar && java -jar -Xss1024m day2224_1_2.jar
+          kotlinc day2219_1_2.kt -include-runtime -d day2219_1_2.jar && java -jar -Xss1024m day2219_1_2.jar
