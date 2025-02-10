@@ -23,7 +23,7 @@ fun mine(localBlue: String, timeLeft: Int): Int {
 
     var lB = localBlue.split(" ").map {it.toInt()}
 
-    if ((timeLeft < 20 && lB[1] <= 0) || (timeLeft < 15 && lB[2] <= 0)) {return 0}
+    if ((timeLeft < 10 && lB[1] <= 0) || (timeLeft < 15 && lB[2] <= 0)) {return 0}
     if (lB[1] > 10) return 0
     if (lB[0] > 10) return 0
     //if (timeLeft < 10 && lB[0] == 0 && lB[1] == 0) return 0
@@ -119,7 +119,7 @@ fun mine(localBlue: String, timeLeft: Int): Int {
 fun aocDay2219(part: Int = 1): Int {
 
     var result = 0
-    var timeLimit = 32
+    var timeLimit = 24
 
     var id = 1
     File("day2219_puzzle_input.txt").forEachLine {
