@@ -18,10 +18,10 @@ jobs:
           cd src
           kotlinc test.kt -include-runtime -d test.jar
           output=$(java -jar -Xss1024m test.jar)
-          echo "::set-output name=result::$output"
+          echo "result=$output" >> $GITHUB_ENV
 
       - name: Check output
-        if: steps.run_test.outputs.result != '42'
+        if: env.result != '432'
         run: |
           echo "The output is not 42, failing the job."
           exit 1
