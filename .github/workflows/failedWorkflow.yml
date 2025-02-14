@@ -21,7 +21,7 @@ jobs:
           echo "::set-output name=result::$output"
 
       - name: Check output
-        if: steps.run_test.outputs.result != '432'
+        if: steps.run_test.outputs.result != '42'
         run: |
-          echo "The output is not 432, failing the job."
+          echo "The output is not 42, failing the job."
           exit 1
