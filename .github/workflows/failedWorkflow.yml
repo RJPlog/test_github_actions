@@ -21,7 +21,7 @@ jobs:
           echo "result=$output" >> $GITHUB_ENV
 
       - name: Check output
-        if: env.result != '432'
+        if: env.result != '42'
         run: |
           echo "The output is not 42, failing the job."
           exit 1
