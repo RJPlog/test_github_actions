@@ -1,0 +1,27 @@
+name: failedWorkflow
+run-name: ${{ github.actor }} is testing out GitHub Actions, this time how to make a job failing depending on the result 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Runtime-of-Solution-on-Github-runner:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout_Repo
+        uses: actions/checkout@v4
+
+      - name: Run_test_application
+        id: run_test
+        run: |
+          cd src
+          kotlinc test.kt -include-runtime -d test.jar
+          output=$(java -jar -Xss1024m test.jar)
+          echo "::set-output name=result::$output"
+
+      - name: Check output
+        if: steps.run_test.outputs.result != '432'
+        run: |
+          echo "The output is not 432, failing the job."
+          exit 1
