@@ -21,22 +21,20 @@ jobs:
           echo "result=$output" >> $GITHUB_ENV
 
       - name: Set PRECHECKSTATUS
-        if: env.result == '42'
-        run: echo "PRECHECKSTATUS=0" >> $GITHUB_ENV
-
-      - name: Set PRECHECKSTATUS to 1
-        if: env.result == '43'
-        run: echo "PRECHECKSTATUS=1" >> $GITHUB_ENV
-
-      - name: Set PRECHECKSTATUS to 2
-        if: env.result != '42' && env.result != '43'
-        run: echo "PRECHECKSTATUS=2" >> $GITHUB_ENV
+        run: |
+          if [ "$result" == "42" ]; then
+            echo "PRECHECKSTATUS=0" >> $GITHUB_ENV
+          elif [ "$result" == "43" ]; then
+            echo "PRECHECKSTATUS=1" >> $GITHUB_ENV
+          else
+            echo "PRECHECKSTATUS=2" >> $GITHUB_ENV
+          fi
 
       - name: Output PRECHECKSTATUS
         run: echo "PRECHECKSTATUS=$PRECHECKSTATUS"
 
-      - name: Check output
-        if: env.result != '42'
+      - name: Check PRECHECKSTATUS
+        if: env.PRECHECKSTATUS != '0'
         run: |
-          echo "The output is not 42, failing the job."
+          echo "PRECHECKSTATUS is not 0, failing the job."
           exit 1
