@@ -20,6 +20,21 @@ jobs:
           output=$(java -jar -Xss1024m test.jar)
           echo "result=$output" >> $GITHUB_ENV
 
+      - name: Set PRECHECKSTATUS
+        if: env.result == '42'
+        run: echo "PRECHECKSTATUS=0" >> $GITHUB_ENV
+
+      - name: Set PRECHECKSTATUS to 1
+        if: env.result == '43'
+        run: echo "PRECHECKSTATUS=1" >> $GITHUB_ENV
+
+      - name: Set PRECHECKSTATUS to 2
+        if: env.result != '42' && env.result != '43'
+        run: echo "PRECHECKSTATUS=2" >> $GITHUB_ENV
+
+      - name: Output PRECHECKSTATUS
+        run: echo "PRECHECKSTATUS=$PRECHECKSTATUS"
+
       - name: Check output
         if: env.result != '42'
         run: |
