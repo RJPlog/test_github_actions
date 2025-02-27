@@ -12,7 +12,7 @@ jobs:
       - name: Checkout_Repo
         uses: actions/checkout@v4
 
-      - name: Run_test_application
+       name: Run_test_application
         id: run_test
         run: |
           cd src
