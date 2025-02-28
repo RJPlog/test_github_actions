@@ -6,7 +6,7 @@ on:
 
 jobs:
   Runtime-of-Solution-on-Github-runner:
-    runs-on: RJPlog_selfHosted
+    runs-on: ubuntu
     steps:
 
       - name: Checkout_Repo
