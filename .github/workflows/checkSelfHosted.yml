@@ -1,0 +1,14 @@
+name: checkSelfHosted
+run-name: ${{ github.actor }} is testing out GitHub Actions, this time how to use a self hosted runner 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Runtime-of-Solution-on-Github-runner:
+    runs-on: RJPlog_selfHosted
+    steps:
+
+      - name: HelloWorld
+        run: |
+          echo "Hello World, I am running on a self hosted runner"
